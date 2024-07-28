@@ -22,7 +22,57 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color(0xFF0A0E21),
       ),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const DrawerHeader(
+                margin: EdgeInsets.only(bottom: 45),
+                decoration: BoxDecoration(
+                  color: Color(0xFF222025),
+                ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: Icon(Icons.person, size: 43),
+                        backgroundColor: Color(0xFF1D1B20),
+                      ),
+                      SizedBox(width: 10),
+                      Text("Login ")
+                    ],
+                  ),
+                )),
+            ListTile(
+              title: const Text("Home"),
+              leading: const Icon(Icons.home),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text("About"),
+              leading: const Icon(Icons.info_outline),
+              onTap: () {
+                Get.dialog(
+                  AlertDialog.adaptive(
+                    title: Text("About"),
+                    actions: [
+                      ListView(
+                        children: [
+                          CircleAvatar(),
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       body: GetBuilder(
         init: HomeController(),
         autoRemove: false,
@@ -121,7 +171,8 @@ class HomePage extends StatelessWidget {
                       controller.calculateBMI();
                       Get.toNamed(Routes.result);
                     } else {
-                      Get.snackbar("Feild","Weight Must be ");
+                      Get.snackbar("Filed",
+                          "Weight Must be greater then 15 and Age Must be greater then 0 ");
                     }
                   },
                   color: const Color(0xFFEB1555),
