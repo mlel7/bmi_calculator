@@ -37,8 +37,8 @@ class HomePage extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 35,
-                        child: Icon(Icons.person, size: 43),
                         backgroundColor: Color(0xFF1D1B20),
+                        child: Icon(Icons.person, size: 43),
                       ),
                       SizedBox(width: 10),
                       Text("Login ")
@@ -58,10 +58,10 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 Get.dialog(
                   AlertDialog.adaptive(
-                    title: Text("About"),
+                    title: const Text("About"),
                     actions: [
                       ListView(
-                        children: [
+                        children: const [
                           CircleAvatar(),
                         ],
                       )

@@ -15,8 +15,8 @@ class HomeController extends GetxController{
   Color resultColor = Colors.green;
   double bmi = 0;
   String advice = "Your BMI is in the normal You can eat whatever you want";
-  changeGender(Gender _gender){
-    gender = _gender;
+  changeGender(Gender gender){
+    gender = gender;
     update();
   }
   sliderChange(double value){
